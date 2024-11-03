@@ -55,6 +55,10 @@ jiva:
       image:
         registry: "registry.dockermirror.com/"
         repository: openebs/jiva
+    exporter:
+      image:
+        repository: "registry.dockermirror.com/openebs/m-exporter"
+        tag: 3.6.0
     replica:
       image:
         registry: "registry.dockermirror.com/"
@@ -63,7 +67,52 @@ jiva:
       registry: "registry.dockermirror.com/"
       repository: openebs/jiva-operator
 
+  localpv-provisioner:
+    localpv:
+      image:
+        registry: "registry.dockermirror.com/"
+    helperPod:
+      image:
+        registry: "registry.dockermirror.com/"
+    openebs-ndm:
+      helperPod:
+        image:
+          registry: "registry.dockermirror.com/"
+      ndm:
+        image:
+          registry: "registry.dockermirror.com/"
+      ndmExporter:
+        image:
+          registry: "registry.dockermirror.com/"
+      ndmOperator:
+        image:
+          registry: "registry.dockermirror.com/"
   jivaCSIPlugin:
     image:
       registry: "registry.dockermirror.com/"
       repository: openebs/jiva-csi
+
+localprovisioner:
+  image: registry.dockermirror.com/openebs/provisioner-localpv
+
+ndm:
+  image: registry.dockermirror.com/openebs/node-disk-manager
+
+ndmOperator:
+  image: registry.dockermirror.com/openebs/node-disk-operator
+
+policies:
+  monitoring:
+    image: registry.dockermirror.com/openebs/m-exporter
+
+provisioner:
+  image: registry.dockermirror.com/openebs/openebs-k8s-provisioner
+
+snapshotOperator:
+  controller:
+    image: registry.dockermirror.com/openebs/snapshot-controller
+  provisioner:
+    image: registry.dockermirror.com/openebs/snapshot-provisioner
+
+webhook:
+  image: registry.dockermirror.com/openebs/admission-server
