@@ -30,8 +30,8 @@ apt install -y git
 #################################
 # 克隆 cluster-utils
 #################################
-# REPO=https://mirror.ghproxy.com/https://github.com/Val-istar-Guo/cluster-utils
-REPO=https://github.com/Val-istar-Guo/cluster-utils.git
+# REPO=https://mirror.ghproxy.com/https://github.com/buka-lnc/cli.kubernetes
+REPO=https://github.com/buka-lnc/cli.kubernetes.git
 DIR=$HOME/cluster-utils
 
 [[ -e $DIR ]] && rm -rf $DIR
