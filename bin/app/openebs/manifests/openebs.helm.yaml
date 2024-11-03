@@ -3,6 +3,8 @@
 cleanup:
   image:
     registry: "registry.dockermirror.com/"
+helper:
+  image: "registry.dockermirror.com/openebs/linux-utils"
 jiva:
   enabled: true
   replicas: 1
