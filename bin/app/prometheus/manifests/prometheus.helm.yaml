@@ -8,7 +8,7 @@ alertmanager:
   enabled: true
   alertmanagerSpec:
     image:
-      registry: quay.mirrors.ustc.edu.cn
+      registry: harbor.nas.val-istar-guo.com/quay.io
       # repository: prometheus/alertmanager
       portName: "9093"
     # storage:
@@ -32,22 +32,22 @@ prometheusOperator:
     enabled: false
 
   image:
-    registry: quay.mirrors.ustc.edu.cn
+    registry: harbor.nas.val-istar-guo.com/quay.io
     # repository: prometheus-operator/prometheus-operator
 
-  prometheusDefaultBaseImageRegistry: quay.mirrors.ustc.edu.cn
+  prometheusDefaultBaseImageRegistry: harbor.nas.val-istar-guo.com/quay.io
   # prometheusDefaultBaseImage: bitnami/prometheus
 
-  alertmanagerDefaultBaseImageRegistry: quay.mirrors.ustc.edu.cn
+  alertmanagerDefaultBaseImageRegistry: harbor.nas.val-istar-guo.com/quay.io
   # alertmanagerDefaultBaseImage: bitnami/alertmanager
 
   prometheusConfigReloader:
     image:
-      registry: quay.mirrors.ustc.edu.cn
+      registry: harbor.nas.val-istar-guo.com/quay.io
       # repository: prometheus-operator/prometheus-config-reloader
 
   thanosImage:
-    registry: quay.mirrors.ustc.edu.cn
+    registry: harbor.nas.val-istar-guo.com/quay.io
     # registry: docker.io
     # repository: bitnami/thanos
 
@@ -61,7 +61,7 @@ prometheus:
   enabled: true
   prometheusSpec:
     image:
-      registry: quay.mirrors.ustc.edu.cn
+      registry: harbor.nas.val-istar-guo.com/quay.io
       # repository: prometheus/alertmanager
     retention: 14d
     storageSpec:

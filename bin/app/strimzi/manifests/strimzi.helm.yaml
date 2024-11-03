@@ -5,7 +5,7 @@ createGlobalResources: true
 
 watchAnyNamespace: true
 
-defaultImageRegistry: quay.mirrors.ustc.edu.cn
+defaultImageRegistry: harbor.nas.val-istar-guo.com/quay.io
 # image:
 #   registry: ""
 #   repository: ""
