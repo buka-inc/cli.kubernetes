@@ -1,0 +1,84 @@
+# 名称过长无法创建PVC
+# https://github.com/prometheus-community/helm-charts/issues/1033
+nameOverride: kps
+fullnameOverride: kps
+namespaceOverride: monitoring
+
+alertmanager:
+  enabled: true
+  alertmanagerSpec:
+    image:
+      registry: quay.mirrors.ustc.edu.cn
+      # repository: prometheus/alertmanager
+      portName: "9093"
+    # storage:
+    #   volumeClaimTemplate:
+    #     spec:
+    #       storageClassName: jiva-sc
+    #       accessModes: ["ReadWriteOnce"]
+    #       resources:
+    #         requests:
+    #           storage: 5Gi
+
+grafana:
+  enabled: true
+  defaultDashboardsTimezone: browser
+  adminPassword: admin
+
+prometheusOperator:
+  enabled: true
+
+  tls:
+    enabled: false
+
+  image:
+    registry: quay.mirrors.ustc.edu.cn
+    # repository: prometheus-operator/prometheus-operator
+
+  prometheusDefaultBaseImageRegistry: quay.mirrors.ustc.edu.cn
+  # prometheusDefaultBaseImage: bitnami/prometheus
+
+  alertmanagerDefaultBaseImageRegistry: quay.mirrors.ustc.edu.cn
+  # alertmanagerDefaultBaseImage: bitnami/alertmanager
+
+  prometheusConfigReloader:
+    image:
+      registry: quay.mirrors.ustc.edu.cn
+      # repository: prometheus-operator/prometheus-config-reloader
+
+  thanosImage:
+    registry: quay.mirrors.ustc.edu.cn
+    # registry: docker.io
+    # repository: bitnami/thanos
+
+  admissionWebhooks:
+    patch:
+      image:
+        registry: k8s.mirror.nju.edu.cn
+        # repository: dyrnq/kube-webhook-certgen
+
+prometheus:
+  enabled: true
+  prometheusSpec:
+    image:
+      registry: quay.mirrors.ustc.edu.cn
+      # repository: prometheus/alertmanager
+    retention: 14d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: jiva-sc
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 5Gi
+
+prometheus-node-exporter:
+  namespaceOverride: monitoring
+
+kube-state-metrics:
+  image:
+    registry: k8s.mirror.nju.edu.cn
+    # registry: docker.io
+    # repository: bitnami/kube-state-metrics
+    # tag: 2.8.1-debian-11-r1

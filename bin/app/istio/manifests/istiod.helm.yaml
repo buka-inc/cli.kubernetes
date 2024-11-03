@@ -1,0 +1,35 @@
+pilot:
+  image: registry.dockermirror.com/istio/pilot:1.20.3
+  autoscaleEnabled: false
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+sidecarInjectorWebhook:
+  enableNamespacesByDefault: false
+  rewriteAppHTTPProbe: true
+
+telemetry:
+  enabled: true
+  v2:
+    prometheus:
+      enabled: false
+
+meshConfig:
+  ingressService: istio-ingress
+  ingressSelector: ingress
+
+global:
+  proxy:
+    image: registry.dockermirror.com/istio/proxyv2:1.20.3
+    # Resources for the sidecar.
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 200m
+        memory: 256Mi
+  proxy_init:
+    image: registry.dockermirror.com/istio/proxyv2:1.20.3

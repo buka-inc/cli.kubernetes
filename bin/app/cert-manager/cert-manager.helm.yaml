@@ -1,0 +1,25 @@
+installCRDs: true
+
+replicaCount: 1
+
+image:
+  repository: harbor.nas.val-istar-guo.com/jetstack/cert-manager-controller
+
+prometheus:
+  enabled: false
+
+webhook:
+  image:
+    repository: harbor.nas.val-istar-guo.com/jetstack/cert-manager-webhook
+
+cainjector:
+  image:
+    repository: harbor.nas.val-istar-guo.com/jetstack/cert-manager-cainjector
+
+acmesolver:
+  image:
+    repository: harbor.nas.val-istar-guo.com/jetstack/cert-manager-acmesolver
+
+startupapicheck:
+  image:
+    repository: harbor.nas.val-istar-guo.com/jetstack/cert-manager-ctl
