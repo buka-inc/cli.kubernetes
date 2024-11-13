@@ -13,7 +13,8 @@ log "安装 containerd..."
 [[ -z $SANDBOX_IMAGE ]] && log '请设置 SANDBOX_IMAGE' && exit
 
 # 配置项
-REPO=https://miaooo-users-service.oss-cn-shanghai.aliyuncs.com/containerd-1.6.16-linux-amd64.tar.gz
+# REPO=https://miaooo-users-service.oss-cn-shanghai.aliyuncs.com/containerd-1.6.16-linux-amd64.tar.gz
+REPO=https://github.proxy.buka.team/containerd/containerd/releases/download/v1.6.16/containerd-1.6.16-linux-amd64.tar.gz
 TEMP=$(mktemp -t containerd-1.6.16-linux-amd64.XXXXXX.tar.gz)
 
 # 安装container
@@ -21,7 +22,7 @@ wget -O ${TEMP} ${REPO}
 tar xzvf ${TEMP} -C /usr/local
 
 mkdir -p /usr/local/lib/systemd/system
-wget -O /usr/local/lib/systemd/system/containerd.service https://mirror.ghproxy.com/raw.githubusercontent.com/containerd/containerd/main/containerd.service
+wget -O /usr/local/lib/systemd/system/containerd.service https://mirror.ghproxy.com/raw.githubusercontent.com/containerd/containerd/refs/tags/v1.6.16/containerd.service
 
 systemctl daemon-reload
 systemctl enable --now containerd
@@ -58,7 +59,8 @@ log '安装 containerd cni plugin...'
 
 # 配置项
 # REPO=https://mirror.ghproxy.com/github.com/containernetworking/plugins/releases/download/v1.2.0/cni-plugins-linux-amd64-v1.2.0.tgz
-REPO=https://miaooo-users-service.oss-cn-shanghai.aliyuncs.com/cni-plugins-linux-amd64-v1.2.0.tgz
+# REPO=https://miaooo-users-service.oss-cn-shanghai.aliyuncs.com/cni-plugins-linux-amd64-v1.2.0.tgz
+REPO=https://github.proxy.buka.team/containernetworking/plugins/releases/download/v1.2.0/cni-plugins-linux-amd64-v1.2.0.tgz
 TEMP=$(mktemp -t cni-plugins-linux-amd64-v1.2.0.XXXXXX.tgz)
 
 # 安装
