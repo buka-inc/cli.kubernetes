@@ -22,7 +22,8 @@ cd ./bin/bootstrap
 ./runc.sh
 ./containerd.sh
 ./kubernetes.sh
-./helm.sh
+# 不再通过 cli 安装应用，改为通过 actions 安装
+# ./helm.sh
 cd - >>/dev/null
 
 #################################
