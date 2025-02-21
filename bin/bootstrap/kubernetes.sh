@@ -53,7 +53,8 @@ fi
 # 同步时钟时间
 #################################
 log '同步时钟'
-sudo apt-get install ntp
+sudo apt-get update
+sudo apt-get install -y ntp
 sudo systemctl enable ntp
 sudo systemctl start ntp
 
