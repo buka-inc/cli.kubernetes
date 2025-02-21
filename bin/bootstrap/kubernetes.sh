@@ -53,8 +53,9 @@ fi
 # 同步时钟时间
 #################################
 log '同步时钟'
-apt install -y ntpdate
-ntpdate time.windows.com
+sudo apt-get install ntp
+sudo systemctl enable ntp
+sudo systemctl start ntp
 
 #################################
 # 安装kubernetes
